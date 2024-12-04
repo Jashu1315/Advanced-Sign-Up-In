@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form>
+
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" name="username" placeholder="Name">
+                    </div>
+
+
+
+                    <div class="input-field">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <input type="email" id="email" name="email" placeholder="E-Mail" required>
+                    </div>
+
+
+                    <div class="input-field">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <p>Forget Password <a href="#">Click here!</a></p>
+                </div>
+
+
+                <div class="btn-field">
+                    <button type="submit"  value="signup" id="signupBtn">
+                        Sign Up
+                    </button>
+                    <button type="submit" value="signin" class="disable" id="signinBtn">
+                        Sign In
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // prevent default form submission behavior
+
+            // validate username and password
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (username === 'myusername' && password === 'mypassword') {
+                alert('Login successful!');
+            } else {
+                alert('Username or password incorrect. Please try again.');
+            }
+        });
+
+
+
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
+
+
+        let signinBtn = document.getElementById("signinBtn");
+        let signupBtn = document.getElementById("signupBtn");
+        let nameField = document.getElementById("nameField");
+        let title = document.getElementById("title");
+
+
+        signinBtn.onclick = function () {
+           
+            nameField.style.maxHeight = "0";
+            title.innerHTML = "Sign In"
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+            // location.reload();
+
+
+        }
+
+        signupBtn.onclick = function () {
+            nameField.style.maxHeight = "60px";
+            title.innerHTML = "Sign Up"
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+            location.reload();
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
